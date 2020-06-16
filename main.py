@@ -19,7 +19,7 @@ for filename in har_filenames:
     data = json.loads("{\"tracks\": []}")
 
     for entry in har["log"]["entries"]:
-        if "audioswap_ajax" in entry["request"]["url"]:
+        if "audioswap_ajax?action_get_tracks" in entry["request"]["url"]:
             j = json.loads(entry["response"]["content"]["text"])
             data["tracks"] += j["tracks"]
 
